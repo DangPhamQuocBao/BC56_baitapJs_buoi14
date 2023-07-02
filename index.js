@@ -91,14 +91,15 @@ function tamGiac(){
   var canh2 = document.getElementById('canh2').value*1
   var canh3 = document.getElementById('canh3').value*1
   var loaiTamGiac = ""
-  if( canh1==2 && canh2==2 && canh3==1){
-loaiTamGiac=" Đây là tam giác cân"
-  }else if(canh1==3 && canh2==3 && canh3==3){
-    loaiTamGiac="Đây là tâm giác đều"
-  }else if(canh1==3 && canh2==4 && canh3==5){
+  if(canh1==canh3 && canh2==canh3 && canh3==canh1 ){
+loaiTamGiac="Đây là tâm giác đều "
+  }else if(canh1==canh2 || canh2==canh3 || canh3==canh1){
+    loaiTamGiac="Đây là tam giác cân"
+  }else if((canh1*canh1+canh2*canh2)==canh3*canh3 || (canh2*canh2+canh3*canh3)==canh1*canh1 || (canh1*canh1+canh3*canh3)==canh2*canh2){
     loaiTamGiac="Đây là tam giác vuông (Định lý Pytago)"
   }else(
     loaiTamGiac="Đây là tam giác thường"
   )
   document.querySelector('#ketQuaTamGiac').innerHTML=`<h2>${loaiTamGiac}</h2>`
 }
+
